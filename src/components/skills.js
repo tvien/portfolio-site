@@ -142,10 +142,13 @@ const software = [
 ]
 
 const Skills = props => {
-	const { ref, isInView } = useInViewChecker()
+	// const { ref, isInView } = useInViewChecker()
 
 	return (
-		<div ref={ref} className='container mx-auto lg:max-w-7xl px-8 lg:px-16'>
+		<div
+			//  ref={ref}
+			className='container mx-auto lg:max-w-7xl px-8 lg:px-16'
+		>
 			<div className='w-full mb-6'>
 				<SectionHeader title='Skills' />
 			</div>
