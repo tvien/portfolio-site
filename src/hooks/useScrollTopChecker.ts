@@ -8,17 +8,22 @@ const useScrollTopChecker = (threshold: number = 0): boolean => {
 		(window || { scrollY: 0 }).scrollY > threshold
 	)
 
-	const checkScrollPos = useCallback(
-		() =>
-			setScrolledPastActionBar((window || { scrollY: 0 }).scrollY > threshold),
-		[threshold]
-	)
+	// const checkScrollPos = useCallback(
+	// 	() =>
+	// 		setScrolledPastActionBar((window || { scrollY: 0 }).scrollY > threshold),
+	// 	[threshold]
+	// )
 
 	useEffect(() => {
-		document.addEventListener('scroll', checkScrollPos)
+		document.addEventListener('scroll', () =>
+			setScrolledPastActionBar(
+				(typeof window !== 'undefined' ? window : { scrollY: 0 }).scrollY >
+					threshold
+			)
+		)
 
-		return () => document.removeEventListener('scroll', checkScrollPos)
-	}, [checkScrollPos])
+		// return () => document.removeEventListener('scroll', checkScrollPos)
+	}, [])
 
 	return scrolledPastActionBar
 }
