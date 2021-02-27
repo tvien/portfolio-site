@@ -5,7 +5,8 @@ import { useState, useEffect, useCallback } from 'react'
  */
 const useScrollTopChecker = (threshold: number = 0): boolean => {
 	const [scrolledPastActionBar, setScrolledPastActionBar] = useState(
-		(window || { scrollY: 0 }).scrollY > threshold
+		(typeof window !== 'undefined' ? window : { scrollY: 0 }).scrollY >
+			threshold
 	)
 
 	// const checkScrollPos = useCallback(
