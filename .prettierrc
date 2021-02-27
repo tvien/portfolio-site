@@ -1,4 +1,14 @@
 {
-  "arrowParens": "avoid",
-  "semi": false
+	"singleQuote": true,
+	"jsxSingleQuote": true,
+	"printWidth": 80,
+	"editor.formatOnSave": true,
+	"proseWrap": "always",
+	"requireConfig": false,
+	"useTabs": true,
+	"trailingComma": "none",
+	"bracketSpacing": true,
+	"jsxBracketSameLine": false,
+	"semi": false,
+	"arrowParens": "avoid"
 }
