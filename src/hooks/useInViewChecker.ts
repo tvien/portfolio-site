@@ -19,11 +19,9 @@ const useInViewChecker = (): {
 	useEffect(() => {
 		const { current } = ref
 
-		if (typeof window !== `undefined`) {
-			window.addEventListener('load', () => {
-				setOffSetTop(current.offsetTop)
-			})
-		}
+		window.addEventListener('load', () => {
+			setOffSetTop(current.offsetTop)
+		})
 	}, [])
 
 	return {
