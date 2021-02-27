@@ -19,7 +19,7 @@ const portfolioWork = [
 		title: 'Personal Portfolio',
 		description:
 			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quia veniam distinctio amet voluptate maxime.',
-		techUsed: ['ReactJS', 'Gatsby', 'Tailwind CSS', 'react-spring'],
+		techUsed: ['ReactJS', 'Gatsby', 'Tailwind CSS'],
 		github: '',
 		visitLink: ''
 	},

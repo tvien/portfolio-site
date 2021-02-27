@@ -3,9 +3,26 @@ import PropTypes from 'prop-types'
 
 import { FaQuoteLeft } from 'react-icons/fa'
 
+import { useSpring, animated, config } from 'react-spring'
+
 const Quote = props => {
+	const springProps = useSpring({
+		from: {
+			opacity: 0,
+			transform: 'translateY(50px)'
+		},
+
+		opacity: 1,
+		transform: 'translateY(0px)',
+		delay: 150,
+		config: config.molasses
+	})
+
 	return (
-		<div className='container mx-auto pt-12 lg:pt-6 lg:max-w-5xl px-8 lg:px-16'>
+		<animated.div
+			style={springProps}
+			className='container mx-auto pt-12 lg:pt-6 lg:max-w-5xl px-8 lg:px-16'
+		>
 			<div className='relative rounded-md mt-16'>
 				<div className='absolute -top-16'>
 					<FaQuoteLeft size='6rem' className='text-blue-600 opacity-20' />
@@ -23,7 +40,7 @@ const Quote = props => {
 
 				<p className='text-xl font-medium text-gray-400'>- Sam Redwine</p>
 			</div>
-		</div>
+		</animated.div>
 	)
 }
 
