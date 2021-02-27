@@ -9,19 +9,19 @@ const useInViewChecker = (): {
 	ref: React.MutableRefObject<any>
 	isInView: boolean
 } => {
-	const innerHt = typeof window !== `undefined` ? window.innerHeight : 0
-
 	const ref = useRef(null)
 	const [offSetTop, setOffSetTop] = useState(0)
-	const calcOffSet = offSetTop - innerHt / 6
+	const calcOffSet = offSetTop - (window || { innerHeight: 0 }).innerHeight / 6
 	const isInView = useScrollTopChecker(calcOffSet > 0 ? calcOffSet : 0)
 
 	useEffect(() => {
 		const { current } = ref
 
-		window.addEventListener('load', () => {
-			setOffSetTop(current.offsetTop)
-		})
+		if (current) {
+			window.addEventListener('load', () => {
+				setOffSetTop(current.offsetTop)
+			})
+		}
 	}, [])
 
 	return {

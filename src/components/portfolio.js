@@ -113,28 +113,34 @@ PortfolioCard.propTypes = {
 }
 
 const Portfolio = props => {
-	const { ref, isInView } = useInViewChecker()
+	// const { ref, isInView } = useInViewChecker()
 
-	const trail = useTrail(portfolioWork.length, {
-		opacity: isInView ? 1 : 0,
-		// transform: isInView ? 'translateY(0px)' : 'translateY(25px)',
+	// const trail = useTrail(portfolioWork.length, {
+	// 	opacity: isInView ? 1 : 0,
+	// 	// transform: isInView ? 'translateY(0px)' : 'translateY(25px)',
 
-		reverse: !isInView,
-		config: config.gentle
-	})
+	// 	reverse: !isInView,
+	// 	config: config.gentle
+	// })
 
 	return (
-		<div ref={ref} className='container mx-auto lg:max-w-7xl px-8 lg:px-16'>
+		<div
+			// ref={ref}
+			className='container mx-auto lg:max-w-7xl px-8 lg:px-16'
+		>
 			<div className='w-full mb-12'>
 				<SectionHeader title='Portfolio' />
 			</div>
 
 			<div class='grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-				{trail.map((props, ndx) => (
+				{portfolioWork.map(work => (
+					<PortfolioCard {...work} />
+				))}
+				{/* {trail.map((props, ndx) => (
 					<animated.div style={props}>
 						<PortfolioCard {...portfolioWork[ndx]} />
 					</animated.div>
-				))}
+				))} */}
 			</div>
 		</div>
 	)
