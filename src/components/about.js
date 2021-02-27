@@ -31,7 +31,7 @@ const AboutImage = () => {
 	return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
-const About = props => {
+const About = () => {
 	const { ref, isInView } = useInViewChecker()
 
 	const { opacity, transform: t1 } = useSpring({
