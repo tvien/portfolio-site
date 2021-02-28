@@ -9,9 +9,7 @@ const Footer = props => {
 			}}
 		>
 			<div className='text-center py-6'>
-				© {new Date().getFullYear()}, Built with
-				{` `}
-				<a href='https://www.gatsbyjs.com'>Gatsby</a>
+				© {new Date().getFullYear()}, Site made by Tony V.
 			</div>
 		</footer>
 	)

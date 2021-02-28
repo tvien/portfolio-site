@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { FiDownload } from 'react-icons/fi'
@@ -25,10 +25,17 @@ const LandingHero = props => {
 
 		'linear-gradient(335deg, rgba(255,60,172), rgba(120,75,160), rgba(43,134,197)',
 
-		'linear-gradient(25deg, rgba(81,220,255), rgba(206,94,255),  rgba(255,222,79))'
+		'linear-gradient(25deg, rgba(81,220,255), rgba(206,94,255),  rgba(255,222,79))',
+
+		'linear-gradient(45deg, rgba(250,139,255), rgba(43,210,255),  rgba(43,255,136))'
 	]
 
+	const animationDuration = 2500
+
+	const [reset, setReset] = useState(false)
+
 	const animatedProps = useSpring({
+		reset: reset,
 		from: { backgroundImage: colorSpectrum[0] },
 
 		to: colorSpectrum.map(grad => ({ backgroundImage: grad })),
@@ -42,9 +49,21 @@ const LandingHero = props => {
 		// },
 		config: {
 			// ...config.molasses
-			duration: 5000
+			duration: animationDuration
 		}
 	})
+
+	useEffect(() => {
+		const i = setInterval(() => {
+			console.log('resetting animationg...')
+			setReset(res => !res)
+			setReset(res => !res)
+		}, colorSpectrum.length * animationDuration)
+
+		return () => {
+			clearInterval(i)
+		}
+	}, [])
 
 	return (
 		<>
