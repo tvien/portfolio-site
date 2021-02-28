@@ -34,7 +34,9 @@ const AboutImage = () => {
 const About = () => {
 	// const { ref, isInView } = useInViewChecker()
 
-	// const { opacity, transform: t1 } = useSpring({
+	// console.log(isInView)
+
+	// const springProps = useSpring({
 	// 	opacity: isInView ? 1 : 0,
 	// 	transform: isInView ? 'translateX(0px)' : 'translateX(-50px)',
 
@@ -54,12 +56,13 @@ const About = () => {
 	return (
 		<div
 			// ref={ref}
+
 			className='container mx-auto lg:max-w-7xl px-8 lg:px-16'
 		>
 			<SectionHeader title='About' />
 
 			<div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
-				{/* <animated.div style={{ opacity, transform: t1 }}>
+				{/* <animated.div style={springProps}>
 					<AboutImage />
 				</animated.div> */}
 				<div>

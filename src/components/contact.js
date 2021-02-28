@@ -73,13 +73,13 @@ const Contact = props => {
 					</ul>
 
 					<div className='flex items-center space-x-6'>
-						<button>
+						<a href='https://github.com/tvien' target='_blank'>
 							<VscGithub size='1.35rem' />
-						</button>
+						</a>
 
-						<button>
+						<a href='https://www.linkedin.com/in/tonyvien' target='_blank'>
 							<SiLinkedin size='1.35rem' />
-						</button>
+						</a>
 					</div>
 
 					<div className='w-2/3 hidden md:block'>

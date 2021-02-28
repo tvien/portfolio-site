@@ -18,16 +18,16 @@ const portfolioWork = [
 		imgUrl: portfolioSiteUrl,
 		title: 'Personal Portfolio',
 		description:
-			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quia veniam distinctio amet voluptate maxime.',
+			'A simple online portfolio made with React, Gatsby, and Tailwind CSS (Currently a work-in-progress)',
 		techUsed: ['ReactJS', 'Gatsby', 'Tailwind CSS'],
-		github: '',
+		github: 'https://github.com/tvien/portfolio-site',
 		visitLink: ''
 	},
 	{
 		imgUrl: tampaRealtyServiceUrl,
 		title: 'Tampa Realty Service',
 		description:
-			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quia veniam distinctio amet voluptate maxime.',
+			'Personal online realtor portfolio to display current listings, search or list homes, or view the local walkscore',
 		techUsed: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'jQuery'],
 		github: 'https://github.com/tvien/tampa-realty-service',
 		visitLink: 'https://tvien.github.io/tampa-realty-service/'
@@ -36,7 +36,7 @@ const portfolioWork = [
 		imgUrl: engagedTextingUrl,
 		title: 'Engaged Texting',
 		description:
-			'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quia veniam distinctio amet voluptate maxime.',
+			'A software as a service application for providing simple and affordable SMS marketing solutions',
 		techUsed: [
 			'ReactJS',
 			'Redux',

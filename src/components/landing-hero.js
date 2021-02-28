@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { FiDownload } from 'react-icons/fi'
 
 import LandingImage from './landing-image'
-// import HeroLanding from '../images/hero-landing.png'
+import resumePdf from '../files/Tony_Vien-Resume.pdf'
 
 import { useSpring, animated, config } from 'react-spring'
 
@@ -97,13 +97,20 @@ const LandingHero = props => {
 						</animated.h2>
 
 						<div className='flex space-x-6 mt-6'>
-							<button className='bg-gradient-to-br from-green-300 to-blue-500 px-4 py-2 text-lg text-white rounded-md focus:ring-2 focus:outline-none hover:shadow-lg hover:from-green-400 hover:to-blue-700'>
+							<a
+								href='#contact'
+								className='bg-gradient-to-br from-green-300 to-blue-500 px-4 py-2 text-lg text-white rounded-md focus:ring-2 focus:outline-none hover:shadow-lg hover:from-green-400 hover:to-blue-700'
+							>
 								Contact Me
-							</button>
+							</a>
 
-							<button className='flex items-center ring-1 space-x-2 ring-green-300 px-4 py-2 text-base rounded-md focus:ring-2 text-green-300 focus:outline-none hover:bg-green-300 hover:bg-opacity-10'>
+							<a
+								href={resumePdf}
+								download
+								className='flex items-center ring-2 space-x-2 ring-green-300 px-4 py-2 text-base rounded-md focus:ring-2 text-green-300 focus:outline-none hover:bg-green-300 hover:bg-opacity-10'
+							>
 								<FiDownload /> <p>Resume</p>
-							</button>
+							</a>
 						</div>
 					</div>
 
@@ -145,13 +152,20 @@ const LandingHero = props => {
 						</h2>
 
 						<div className='flex space-x-6 mt-6'>
-							<button className='bg-gradient-to-br from-green-300 to-blue-500 px-3 py-1 text-lg text-white rounded-md focus:ring-2 focus:outline-none hover:shadow-lg hover:from-green-400 hover:to-blue-700'>
+							<a
+								href='#contact'
+								className='bg-gradient-to-br from-green-300 to-blue-500 px-3 py-1 text-lg text-white rounded-md focus:ring-2 focus:outline-none hover:shadow-lg hover:from-green-400 hover:to-blue-700'
+							>
 								Contact Me
-							</button>
+							</a>
 
-							<button className='flex items-center ring-1 space-x-2 ring-green-300 px-4 py-2 text-base rounded-md focus:ring-2 text-green-300 focus:outline-none  hover:bg-green-300 hover:bg-opacity-10'>
+							<a
+								href={resumePdf}
+								download
+								className='flex items-center ring-2 space-x-2 ring-green-300 px-4 py-2 text-base rounded-md focus:ring-2 text-green-300 focus:outline-none  hover:bg-green-300 hover:bg-opacity-10'
+							>
 								<FiDownload /> <p>Resume</p>
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>

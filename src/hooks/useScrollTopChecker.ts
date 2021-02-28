@@ -16,12 +16,12 @@ const useScrollTopChecker = (threshold: number = 0): boolean => {
 	// )
 
 	useEffect(() => {
-		document.addEventListener('scroll', () =>
+		document.addEventListener('scroll', () => {
 			setScrolledPastActionBar(
 				(typeof window !== 'undefined' ? window : { scrollY: 0 }).scrollY >
 					threshold
 			)
-		)
+		})
 
 		// return () => document.removeEventListener('scroll', checkScrollPos)
 	}, [])

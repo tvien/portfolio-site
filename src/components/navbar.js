@@ -65,13 +65,13 @@ const Navbar = ({ siteTitle }) => {
 						</li>
 					</ul>
 
-					<button>
+					<a href='https://github.com/tvien' target='_blank'>
 						<VscGithub size='1.35rem' />
-					</button>
+					</a>
 
-					<button>
+					<a href='https://www.linkedin.com/in/tonyvien' target='_blank'>
 						<SiLinkedin size='1.35rem' />
-					</button>
+					</a>
 				</div>
 			</nav>
 		</header>
