@@ -29,15 +29,19 @@ const LandingHero = props => {
 	]
 
 	const animatedProps = useSpring({
-		to: async next => {
-			while (1) {
-				for (const spectrum of colorSpectrum) {
-					await next({ backgroundImage: spectrum })
-				}
-			}
-		},
+		from: { backgroundImage: colorSpectrum[0] },
+
+		to: colorSpectrum.map(grad => ({ backgroundImage: grad })),
+
+		// to: async next => {
+		// 	while (1) {
+		// 		for (const spectrum of colorSpectrum) {
+		// 			await next({ backgroundImage: spectrum })
+		// 		}
+		// 	}
+		// },
 		config: {
-			// ...config.molasses,
+			// ...config.molasses
 			duration: 5000
 		}
 	})
