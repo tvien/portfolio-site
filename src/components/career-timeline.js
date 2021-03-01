@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import SectionHeader from './section-header'
 
@@ -91,24 +91,30 @@ CareerPoint.propTypes = {
 }
 
 const CareerTimeline = () => {
-	const { ref, isInView } = useInViewChecker()
+	const { ref, isInView } = useInViewChecker(50)
 
-	const trail = useTrail(careerPoints.length, {
-		opacity: isInView ? 1 : 0,
-		transform: isInView ? 'translateX(0px)' : 'translateX(-25px)',
+	const [animationLoaded, setAnimationLoaded] = useState(false)
 
-		delay: 150,
-		reverse: !isInView,
-		config: config.gentle
-	})
+	useEffect(() => {
+		if (isInView) setAnimationLoaded(true)
+	}, [isInView])
+
+	// const trail = useTrail(careerPoints.length, {
+	// 	opacity: isInView ? 1 : 0,
+	// 	transform: isInView ? 'translateX(0px)' : 'translateX(-25px)',
+
+	// 	delay: 150,
+	// 	reverse: !isInView,
+	// 	config: config.gentle
+	// })
 
 	const { opacity, height, transform } = useSpring({
-		opacity: isInView ? 1 : 0,
-		height: isInView ? '100%' : '0%',
-		transform: isInView ? 'translateX(0px)' : 'translateX(50px)',
+		opacity: isInView || animationLoaded ? 1 : 0,
+		height: isInView || animationLoaded ? '100%' : '0%',
+		transform:
+			isInView || animationLoaded ? 'translateX(0px)' : 'translateX(50px)',
 
 		delay: 150,
-		// reverse: !isInView,
 		config: config.molasses
 	})
 
@@ -140,7 +146,7 @@ const CareerTimeline = () => {
 					/>
 
 					<ul class='relative -top-8 list-none m-0 p-0 space-y-6'>
-						{/* {careerPoints.map(career => (
+						{careerPoints.map(career => (
 							<li>
 								<CareerPoint
 									Icon={career.Icon}
@@ -148,8 +154,8 @@ const CareerTimeline = () => {
 									description={career.description}
 								/>
 							</li>
-						))} */}
-						{trail.map((props, ndx) => (
+						))}
+						{/* {trail.map((props, ndx) => (
 							<animated.li style={props}>
 								<CareerPoint
 									Icon={careerPoints[ndx].Icon}
@@ -157,7 +163,7 @@ const CareerTimeline = () => {
 									description={careerPoints[ndx].description}
 								/>
 							</animated.li>
-						))}
+						))} */}
 					</ul>
 				</div>
 			</div>

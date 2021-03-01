@@ -32,11 +32,18 @@ const AboutImage = () => {
 }
 
 const About = () => {
-	const { ref, isInView } = useInViewChecker()
+	const { ref, isInView } = useInViewChecker(50)
+
+	const [animationLoaded, setAnimationLoaded] = useState(false)
+
+	useEffect(() => {
+		if (isInView) setAnimationLoaded(true)
+	}, [isInView])
 
 	const springProps = useSpring({
-		opacity: isInView ? 1 : 0,
-		transform: isInView ? 'translateX(0px)' : 'translateX(-50px)',
+		opacity: isInView || animationLoaded ? 1 : 0,
+		transform:
+			isInView || animationLoaded ? 'translateX(0px)' : 'translateX(-50px)',
 
 		delay: 150,
 		// reverse: !isInView,
