@@ -4,14 +4,16 @@ import useScrollTopChecker from './useScrollTopChecker'
 /**
  * Description: Returns a ref and a boolean. Pass the ref to the element you want to know if it's in scroll view
  */
-const useInViewChecker = (): {
+const useInViewChecker = (
+	offsetPadding = 0
+): {
 	ref: React.MutableRefObject<any>
 	isInView: boolean
 } => {
 	const ref = useRef(null)
 	const [offSetTop, setOffSetTop] = useState(0)
 	const [windowInnerHt, setWindowInnerHt] = useState(0)
-	const calcOffSet = offSetTop - windowInnerHt / 6
+	const calcOffSet = offSetTop - windowInnerHt / 6 - offsetPadding
 
 	const isInView = useScrollTopChecker(calcOffSet > 0 ? calcOffSet : 0)
 

@@ -5,21 +5,28 @@ import { FaQuoteLeft } from 'react-icons/fa'
 
 import { useSpring, animated, config } from 'react-spring'
 
+import useInViewChecker from '../hooks/useInViewChecker'
+
 const Quote = props => {
+	const { ref, isInView } = useInViewChecker(200)
+
 	const springProps = useSpring({
 		from: {
 			opacity: 0,
 			transform: 'translateY(50px)'
 		},
 
-		opacity: 1,
-		transform: 'translateY(0px)',
+		opacity: isInView ? 1 : 0,
+		transform: isInView ? 'translateY(0px)' : 'translateY(50px)',
 		delay: 150,
+		// reverse: !isInView,
+
 		config: config.molasses
 	})
 
 	return (
 		<animated.div
+			ref={ref}
 			style={springProps}
 			className='container mx-auto pt-12 lg:pt-6 lg:max-w-5xl px-8 lg:px-16'
 		>
@@ -38,7 +45,12 @@ const Quote = props => {
 
 				<br />
 
-				<p className='text-xl font-medium text-gray-400'>- Sam Redwine</p>
+				<p className='text-xl font-medium text-gray-400'>
+					- Sam Redwine{' '}
+					<span className='text-sm'>
+						@ 4th International Software Process Workshop
+					</span>
+				</p>
 			</div>
 		</animated.div>
 	)
