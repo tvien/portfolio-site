@@ -2,8 +2,7 @@ import { useRef, useState, useEffect, useCallback } from 'react'
 import useScrollTopChecker from './useScrollTopChecker'
 
 /**
- * Description: Returns a ref and a boolean. Pass the ref for the element that you
- *              want to see if it's in view.
+ * Description: Returns a ref and a boolean. Pass the ref to the element you want to know if it's in scroll view
  */
 const useInViewChecker = (): {
 	ref: React.MutableRefObject<any>
