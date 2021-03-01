@@ -13,6 +13,9 @@ import Img from 'gatsby-image'
 
 import SectionHeader from './section-header'
 
+import { RiMailCheckLine } from 'react-icons/ri'
+import { BiError } from 'react-icons/bi'
+
 const ContactImage = () => {
 	const data = useStaticQuery(graphql`
 		query {
@@ -40,6 +43,28 @@ const Contact = props => {
 	const [email, setEmail] = useState('')
 	const [company, setCompany] = useState('')
 	const [message, setMessage] = useState('')
+
+	const [messageSuccess, setMessageSuccess] = useState(false)
+	const [messageFailed, setMessageFailed] = useState(false)
+
+	const onSubmit = async e => {
+		e.preventDefault()
+
+		try {
+			setMessageSuccess(false)
+			setMessageFailed(false)
+
+			await submit({ company, email, message })
+
+			setEmail('')
+			setCompany('')
+			setMessage('')
+
+			setMessageSuccess(true)
+		} catch (error) {
+			setMessageFailed(true)
+		}
+	}
 
 	return (
 		<div id='contacts' className='container mx-auto lg:max-w-7xl px-8 lg:px-16'>
@@ -88,13 +113,7 @@ const Contact = props => {
 				</div>
 
 				<div className='w-full lg:w-3/5'>
-					<form
-						className='space-y-4'
-						onSubmit={async e => {
-							e.preventDefault()
-							await submit({ company, email, message })
-						}}
-					>
+					<form className='space-y-4' onSubmit={onSubmit}>
 						<label class='block'>
 							<span class='text-gray-700 text-sm font-semibold'>Company</span>
 							<input
@@ -129,13 +148,28 @@ const Contact = props => {
 							></textarea>
 						</label>
 
-						<button
-							type='submit'
-							disabled={submitting}
-							className='flex space-x-2 items-center ml-auto bg-gradient-to-br from-green-300 to-blue-500 px-3 py-1 text-lg text-white rounded-md focus:ring-2 focus:outline-none hover:shadow-lg hover:from-green-400 hover:to-blue-700'
-						>
-							<BiMailSend size='1.25rem' /> <p>Send</p>
-						</button>
+						<div className='flex flex-wrap items-center justify-between'>
+							{messageFailed && (
+								<p className='text-red-600'>
+									<BiError size='1.3rem' className='inline mb-1' /> There was an
+									issue sending your message. Please wait and try again.
+								</p>
+							)}
+							{messageSuccess && (
+								<p className='text-green-400'>
+									<RiMailCheckLine size='1.3rem' className='inline mb-1' />{' '}
+									Message was successfully sent!
+								</p>
+							)}
+
+							<button
+								type='submit'
+								disabled={submitting}
+								className='flex space-x-2 items-center ml-auto bg-gradient-to-br from-green-300 to-blue-500 px-3 py-1 text-lg text-white rounded-md focus:ring-2 focus:outline-none hover:shadow-lg hover:from-green-400 hover:to-blue-700'
+							>
+								<BiMailSend size='1.25rem' /> <p>Send</p>
+							</button>
+						</div>
 					</form>
 				</div>
 			</div>
