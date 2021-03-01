@@ -14,7 +14,6 @@ const useInViewChecker = (): {
 	const [windowInnerHt, setWindowInnerHt] = useState(0)
 	const calcOffSet = offSetTop - windowInnerHt / 6
 
-	// console.log('\ncalcOffSet', calcOffSet)
 	const isInView = useScrollTopChecker(calcOffSet > 0 ? calcOffSet : 0)
 
 	useEffect(() => {
@@ -24,8 +23,6 @@ const useInViewChecker = (): {
 			window.addEventListener('load', () => {
 				setOffSetTop(current.offsetTop)
 				setWindowInnerHt(window.innerHeight)
-				// console.log(current.offsetTop)
-				// console.log(window.innerHeight)
 			})
 		}
 	}, [])
