@@ -32,18 +32,16 @@ const AboutImage = () => {
 }
 
 const About = () => {
-	// const { ref, isInView } = useInViewChecker()
+	const { ref, isInView } = useInViewChecker()
 
-	// console.log(isInView)
+	const springProps = useSpring({
+		opacity: isInView ? 1 : 0,
+		transform: isInView ? 'translateX(0px)' : 'translateX(-50px)',
 
-	// const springProps = useSpring({
-	// 	opacity: isInView ? 1 : 0,
-	// 	transform: isInView ? 'translateX(0px)' : 'translateX(-50px)',
-
-	// 	delay: 150,
-	// 	reverse: !isInView,
-	// 	config: config.molasses
-	// })
+		delay: 150,
+		// reverse: !isInView,
+		config: config.molasses
+	})
 
 	// const { transform: t2 } = useSpring({
 	// 	transform: isInView ? 'translateY(0px)' : 'translateY(50px)',
@@ -54,20 +52,16 @@ const About = () => {
 	// })
 
 	return (
-		<div
-			// ref={ref}
-
-			className='container mx-auto lg:max-w-7xl px-8 lg:px-16'
-		>
+		<div ref={ref} className='container mx-auto lg:max-w-7xl px-8 lg:px-16'>
 			<SectionHeader title='About' />
 
 			<div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
-				{/* <animated.div style={springProps}>
+				<animated.div style={springProps}>
 					<AboutImage />
-				</animated.div> */}
-				<div>
+				</animated.div>
+				{/* <div>
 					<AboutImage />
-				</div>
+				</div> */}
 
 				<div>
 					<div className='h-32 w-32 mb-4 rounded-full overflow-hidden'>

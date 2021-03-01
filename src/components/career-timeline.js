@@ -91,56 +91,56 @@ CareerPoint.propTypes = {
 }
 
 const CareerTimeline = () => {
-	// const { ref, isInView } = useInViewChecker()
+	const { ref, isInView } = useInViewChecker()
 
-	// const trail = useTrail(careerPoints.length, {
-	// 	opacity: isInView ? 1 : 0,
-	// 	// transform: isInView ? 'translateX(0px)' : 'translateX(-25px)',
+	const trail = useTrail(careerPoints.length, {
+		opacity: isInView ? 1 : 0,
+		transform: isInView ? 'translateX(0px)' : 'translateX(-25px)',
 
-	// 	delay: 150,
-	// 	reverse: !isInView,
-	// 	config: config.gentle
-	// })
+		delay: 150,
+		reverse: !isInView,
+		config: config.gentle
+	})
 
-	// const { opacity, height, transform } = useSpring({
-	// 	opacity: isInView ? 1 : 0,
-	// 	height: isInView ? '100%' : '0%',
-	// 	transform: isInView ? 'translateX(0px)' : 'translateX(50px)',
+	const { opacity, height, transform } = useSpring({
+		opacity: isInView ? 1 : 0,
+		height: isInView ? '100%' : '0%',
+		transform: isInView ? 'translateX(0px)' : 'translateX(50px)',
 
-	// 	delay: 150,
-	// 	reverse: !isInView,
-	// 	config: config.slow
-	// })
+		delay: 150,
+		// reverse: !isInView,
+		config: config.molasses
+	})
 
 	return (
 		<div
-			// ref={ref}
+			ref={ref}
 			className='container mx-auto flex flex-wrap lg:max-w-7xl px-8 lg:px-16'
 		>
 			<div className='w-full mb-6'>
 				<SectionHeader title='Career' />
 			</div>
 
-			<div className='w-full px-8 pb-12 md:px-48 lg:px-0 order-1 lg:order-2 lg:w-2/5'>
+			{/* <div className='w-full px-8 pb-12 md:px-48 lg:px-0 order-1 lg:order-2 lg:w-2/5'>
 				<CareerImage />
-			</div>
-			{/* <animated.div
+			</div> */}
+			<animated.div
 				style={{ opacity, transform }}
 				className='w-full px-8 pb-12 md:px-48 lg:px-0 order-1 lg:order-2 lg:w-2/5'
 			>
 				<CareerImage />
-			</animated.div> */}
+			</animated.div>
 
 			<div className='w-full order-2 lg:order-1 lg:w-3/5'>
 				<div class='relative'>
-					<div class='z-0 absolute bg-gradient-to-b from-green-300 to-blue-500 h-full w-0.5 top-0 left-4' />
-					{/* <animated.div
+					{/* <div class='z-0 absolute bg-gradient-to-b from-green-300 to-blue-500 h-full w-0.5 top-0 left-4' /> */}
+					<animated.div
 						style={{ height }}
 						class='z-0 absolute bg-gradient-to-b from-green-300 to-blue-500 h-full w-0.5 top-0 left-4'
-					/> */}
+					/>
 
 					<ul class='relative -top-8 list-none m-0 p-0 space-y-6'>
-						{careerPoints.map(career => (
+						{/* {careerPoints.map(career => (
 							<li>
 								<CareerPoint
 									Icon={career.Icon}
@@ -148,8 +148,8 @@ const CareerTimeline = () => {
 									description={career.description}
 								/>
 							</li>
-						))}
-						{/* {trail.map((props, ndx) => (
+						))} */}
+						{trail.map((props, ndx) => (
 							<animated.li style={props}>
 								<CareerPoint
 									Icon={careerPoints[ndx].Icon}
@@ -157,7 +157,7 @@ const CareerTimeline = () => {
 									description={careerPoints[ndx].description}
 								/>
 							</animated.li>
-						))} */}
+						))}
 					</ul>
 				</div>
 			</div>
