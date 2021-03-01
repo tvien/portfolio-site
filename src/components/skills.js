@@ -35,7 +35,7 @@ const languages = [
 
 	{
 		imgSrc: null,
-		name: 'Visual Basic',
+		name: 'VB.NET',
 		alt: 'visual basic',
 		siteUrl:
 			'https://docs.microsoft.com/en-us/dotnet/visual-basic/getting-started/'
