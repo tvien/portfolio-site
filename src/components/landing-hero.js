@@ -30,7 +30,7 @@ const LandingHero = props => {
 		'linear-gradient(45deg, rgba(250,139,255), rgba(43,210,255),  rgba(43,255,136))'
 	]
 
-	const animationDuration = 2500
+	const animationDuration = 5000
 
 	const [reset, setReset] = useState(false)
 
@@ -55,7 +55,6 @@ const LandingHero = props => {
 
 	useEffect(() => {
 		const i = setInterval(() => {
-			console.log('resetting animationg...')
 			setReset(res => !res)
 			setReset(res => !res)
 		}, colorSpectrum.length * animationDuration)
