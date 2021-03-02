@@ -61,9 +61,13 @@ export const PortfolioCard = ({
 	visitLink
 }) => {
 	return (
-		<div className='w-full overflow-hidden rounded-md shadow-md hover:shadow-xl'>
+		<div className='w-full overflow-hidden rounded-md shadow-md hover:shadow-xl transition-shadow group'>
 			<div className='h-auto overflow-hidden'>
-				<img className='h-auto w-full' src={imgUrl} alt='' />
+				<img
+					className='h-auto w-full transform group-hover:scale-150 group-hover:translate-x-16 group-hover:translate-y-10 duration-60000'
+					src={imgUrl}
+					alt=''
+				/>
 			</div>
 
 			<div className='p-4'>
@@ -89,7 +93,7 @@ export const PortfolioCard = ({
 					</div>
 				</div>
 
-				<div className='w-10 h-px mt-2 mb-1  bg-gradient-to-br from-green-300 to-blue-500' />
+				<div className='w-10 h-px mt-2 mb-2  bg-gradient-to-br from-green-300 to-blue-500' />
 
 				<p className='text-base'>{description}</p>
 
