@@ -28,9 +28,9 @@ const languages = [
 	},
 
 	{
-		imgSrc: 'https://cdn.svgporn.com/logos/java.svg',
-		alt: 'java',
-		siteUrl: 'https://www.java.com/en/'
+		imgSrc: 'https://cdn.svgporn.com/logos/c-sharp.svg',
+		alt: 'c#',
+		siteUrl: 'https://docs.microsoft.com/en-us/dotnet/csharp/'
 	},
 
 	{
